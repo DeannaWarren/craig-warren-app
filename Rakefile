@@ -30,6 +30,28 @@ namespace :generate do
     end
   end
 
+  desc "Create an empty controller in spec, e.g., rake generate:controller NAME=user"
+  task :controller do
+    unless ENV.has_key?('NAME')
+      raise "Must specificy controller name, e.g., rake generate:controller NAME=user"
+    end
+
+    name     = ENV['NAME'].camelize
+    filename = "%s_controller.rb" % ENV['NAME'].underscore
+    path     = APP_ROOT.join('app','controllers', filename)
+
+    if File.exist?(path)
+      raise "ERROR: File '#{path}' already exists"
+    end
+
+    puts "Creating #{path}"
+    File.open(path, 'w+') do |f|
+      f.write(<<-EOF.strip_heredoc)
+        # controller for #{name}
+      EOF
+    end
+  end
+
   desc "Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks"
   task :migration do
     unless ENV.has_key?('NAME')
