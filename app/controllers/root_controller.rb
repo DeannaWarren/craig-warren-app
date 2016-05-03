@@ -1,5 +1,5 @@
 # controller for Root
 
-GET "/" do
+get "/" do
   erb :"root"
 end
