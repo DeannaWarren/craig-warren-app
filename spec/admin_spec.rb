@@ -1,5 +1,14 @@
 require 'spec_helper'
 
 describe Admin do
-  pending "add some examples to (or delete) /Users/craigwarren/Desktop/Projects/craig-warren-app/Rakefile"
+
+  it "successfully creates Admin" do
+    admin = Admin.new({
+      name: "Deanna Warren",
+      email: "user@fakeemail.com",
+      password: "fake_password"
+    })
+    expect(admin.save).to change{Admin.all.length}.by(1)
+  end
+
 end
