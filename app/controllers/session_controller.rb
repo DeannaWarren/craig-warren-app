@@ -1,13 +1,17 @@
 # controller for Sessions
 
 get "/admin/sessions/new" do
-  erb :"admin/log_in"
+  erb :"admins/sign_in"
 end
 
 post "/admin/sessions" do
-  #sessions logic here
+  @admin = Admin.find(email: params[:email])
+  if params[:password] == @admin.password
+    session[:id] == @admin.id
+  end
 end
 
 delete "/admin/sessions" do
-  #sessions logic here
+  session[:id] = nil
+  redirect '/'
 end
