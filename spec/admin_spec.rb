@@ -24,10 +24,24 @@ describe Admin do
     end
   end
   describe "admin sessions", js: true do
-    xit "can sign in" do
-      visit "/admin/sign_in"
+    it "can sign in" do
+      Admin.create({name: "Test Name", password: "test_password", email: "test@email.com"})
+      visit "/admin/sessions/new"
+      fill_in "Email", :with => "test@email.com"
+      fill_in "Password", :with => "test_password"
+      click_on('Log In')
+      expect(page).to have_selector(:link_or_button, 'Log Out')
     end
-    it "can sign out"
+    it "can sign out" do
+      Admin.create({name: "Test Name", password: "test_password", email: "test@email.com"})
+      visit "/admin/sessions/new"
+      fill_in "Email", :with => "test@email.com"
+      fill_in "Password", :with => "test_password"
+      click_on('Log In')
+      click_on('Log Out')
+      visit "/admin"
+      expect(page).to have_selector(:link_or_button, "Log In")
+    end
   end
   describe "admin functions" do
   end

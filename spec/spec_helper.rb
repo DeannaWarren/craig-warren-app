@@ -17,6 +17,7 @@ require "selenium-webdriver"
 RSpec.configure do |config|
   config.include Rack::Test::Methods
 
+  include Capybara::DSL
   Capybara.default_driver = :selenium # <-- use Selenium driver
 end
 

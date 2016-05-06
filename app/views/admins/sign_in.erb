@@ -4,9 +4,15 @@
 
 <h3><a href="/"> If you are not the Admin, click here to return to the site. </a></h3>
 
+<% if @errors %>
+  <%= @errors %>
+<% end %>
+
 <div class='container'>
   <form action='/admin/sessions' method='post' name='login_form'>
-  <input type='text' placeholder='Email Address' name='email'>
-  <input type='password' placeholder='Password' name='password'>
-  <input type='submit'>
+  <label for="email"> Email: </label>
+  <input type='text' id="email" name='email'>
+  <label for="password"> Password: </label>
+  <input type='password' id="password" name='password'>
+  <input type='submit' value="Log In">
 </form>
