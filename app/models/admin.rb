@@ -4,6 +4,8 @@ class Admin < ActiveRecord::Base
   # users.password_hash in the database is a :string
   include BCrypt
 
+  has_many :blogs
+
   def password
     @password ||= Password.new(password_hash)
   end

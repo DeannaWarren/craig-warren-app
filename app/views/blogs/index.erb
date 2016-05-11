@@ -1,0 +1,9 @@
+<h2> Articles </h2>
+
+<% @blogs.each do |blog| %>
+
+  <h3><a href="/blogs/<%= blog.id %>"> <%= blog.title %> </a></h3>
+  <p> posted at <%= blog.created_at %></p>
+  <p><%= blog.body %></p>
+
+<% end %>

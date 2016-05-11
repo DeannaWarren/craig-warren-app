@@ -1,11 +1,16 @@
 # controller for Root
 
 get "/" do
-  @admin = Admin.first || nil
-  if @admin
-    @title = @admin.title || @admin.name
-  else
-    @title = "Title Not Set"
-  end
+  set_layout_variables
   erb :"root"
+end
+
+get "/about" do
+  set_layout_variables
+  erb :"general/about"
+end
+
+get "/contact" do
+  set_layout_variables
+  erb :"general/contact"
 end

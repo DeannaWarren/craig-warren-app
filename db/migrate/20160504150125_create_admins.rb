@@ -14,11 +14,11 @@ class CreateAdmins < ActiveRecord::Migration
 
       # t.?? :picture
 
-      t.string :summary
-      t.string :usp_min
-      t.text :usp_20
-      t.text :usp_200
-      t.text :usp_2k
+      t.string :summary # on blog posts
+      t.string :usp_min # under title
+      t.text :usp_20    # Contact page
+      t.text :usp_200   # front page
+      t.text :usp_2k    # about page
 
       t.timestamps
     end

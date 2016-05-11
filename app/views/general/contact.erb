@@ -1,0 +1,19 @@
+<%= @admin.usp_20 %>
+
+<p><%= @admin.email %></p>
+
+<% if @admin.facebook_url %>
+  <p><a href=<%= @admin.facebook_url %>> Facebook </a></p>
+<% end %>
+
+<% if @admin.twitter_url %>
+  <p><a href=<%= @admin.twitter_url %>> Twitter </a></p>
+<% end %>
+
+<% if @admin.linkedin_url %>
+  <p><a href=<%= @admin.linkedin_url %>> LinkedIn </a></p>
+<% end %>
+
+<% if @admin.phone_number %>
+  <p> Phone number: <%= @admin.phone_number %> </p>
+<% end %>

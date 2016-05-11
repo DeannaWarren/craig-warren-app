@@ -10,4 +10,9 @@ helpers do
     @current_user ||= Admin.where(id: session[:id]).first if session[:id]
   end
 
+  def set_layout_variables
+    @admin = Admin.all.first ||
+    @title = @admin.title || @admin.name || "Admin not set"
+    @subtitle = @admin.usp_min if @admin.usp_min
+  end
 end
